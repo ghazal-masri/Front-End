@@ -1,0 +1,17 @@
+{
+  "name": "monorepo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client": "pnpm --filter @demo/client",
+    "lib": "pnpm --filter @demo/ui-lib",
+    "dev": "pnpm --recursive --parallel --stream run dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.0.2"
+  }
+}
