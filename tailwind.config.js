@@ -3,7 +3,6 @@ module.exports = {
   content: ["./index.html", "./src/**/*.vue"],
   theme: {
     extend: {
-
       colors: {
         "fl-primary-900": "#0075C9",
         "fl-primary-700": "#008ED4",
@@ -28,4 +27,4 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-}
+};
