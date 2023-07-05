@@ -1,8 +1,4 @@
 <template>
-    <page-login></page-login>
-    
+    <router-view />
 </template>
-<script setup lang="ts">
-import pageLogin from './components/page-login.vue'
-</script>
-
+<script setup lang="ts"></script>

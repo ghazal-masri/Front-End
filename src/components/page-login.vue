@@ -28,7 +28,7 @@
                     type="button"
                     class="hover:bg-fl-primary-100 bg-transparent font-semibold border border-fl-primary-900 rounded py-1 px-32 my-8 mx-5"
                 >
-                    LOG IN
+                    <router-link to="empty-page">LOG IN</router-link>
                 </button>
             </div>
 
