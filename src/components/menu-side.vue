@@ -1,8 +1,8 @@
 <template>
-    <div class="bg-fl-primary-900 h-full w-56">
+    <div class="h-full w-56 bg-fl-primary-900">
         <div class="relative">
             <div
-                class="absolute top-2 right-2 text-white text-xl p-1 cursor-pointer font-semibold hover:text-2xl"
+                class="absolute right-2 top-2 cursor-pointer p-1 text-xl font-semibold text-white hover:text-2xl"
                 @click="$emit('closeMenu')"
             >
                 X
@@ -12,16 +12,16 @@
             <img
                 src="https://www.clker.com/cliparts/M/e/l/c/j/v/water-icon-white.svg.hi.png"
                 alt="flowless"
-                class="w-24 h-36 ml-12 mt-10"
+                class="ml-12 mt-10 h-36 w-24"
             />
         </div>
         <div
-            class="cursor-pointer p-6 text-white font-semibold flex flex-col text-start"
+            class="flex cursor-pointer flex-col p-6 text-start font-semibold text-white"
         >
             <div v-for="(item, index) in menuItems" :key="index">
                 <div v-if="!item.subMenu">
                     <div
-                        class="hover:bg-white rounded flex items-center gap-x-1 hover:text-fl-primary-900 p-2"
+                        class="flex items-center gap-x-1 rounded p-2 hover:bg-white hover:text-fl-primary-900"
                     >
                         <div class="text-xl"><Icon :icon="item.icon" /></div>
                         <div>{{ item.label }}</div>

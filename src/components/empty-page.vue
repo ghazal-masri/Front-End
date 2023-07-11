@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-fl-secondary-100 min-h-screen flex">
+    <div class="flex min-h-screen bg-fl-secondary-100">
         <div class="flex">
             <MenuSide v-if="showMenu" @closeMenu="showMenu = false" />
         </div>

@@ -1,7 +1,7 @@
 <template>
     <button @click="subMenuClicked" v-if="data.subMenu" class="w-full">
         <div
-            class="flex justify-between items-center hover:bg-white rounded hover:text-fl-primary-900 p-2"
+            class="flex items-center justify-between rounded p-2 hover:bg-white hover:text-fl-primary-900"
         >
             <div class="flex items-center gap-x-1">
                 <div class="text-xl"><Icon :icon="data.icon" /></div>
