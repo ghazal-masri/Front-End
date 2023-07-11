@@ -1,9 +1,21 @@
 <template>
-    <div>
-        <button
-            class="hover:bg-fl-primary-100 bg-transparent font-semibold border border-fl-primary-900 rounded py-1 px-32 my-8 mx-5 text-fl-primary-900"
-        >
-            <router-link to="/">PREVIOUS</router-link>
-        </button>
+    <div class="bg-fl-secondary-100 min-h-screen flex">
+        <div class="flex">
+            <MenuSide v-if="showMenu" @closeMenu="showMenu = false" />
+        </div>
+        <div class="w-screen">
+            <headerPage
+                tenant="apollo"
+                title="Dashboard"
+                @textClicked="showMenu = true"
+            />
+        </div>
     </div>
 </template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+import headerPage from './header-page.vue'
+import MenuSide from './menu-side.vue'
+const showMenu = ref(false)
+</script>
