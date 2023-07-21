@@ -39,10 +39,10 @@ import { Icon } from '@iconify/vue'
 import { onMounted, ref } from 'vue'
 import subMenu from './sub-menu.vue'
 export type MenuItemsType = {
-    label: String
-    icon: String
+    label: string
+    icon: string
     subMenu?: {
-        label: String
+        label: string
     }[]
 }
 

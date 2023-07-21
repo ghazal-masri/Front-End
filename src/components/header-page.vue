@@ -25,12 +25,27 @@
                 >
                     {{ tenant }}
                 </div>
-                <div>
-                    <img
-                        src="https://icon-library.com/images/down-arrow-icon-png/down-arrow-icon-png-13.jpg"
-                        alt="down arrow"
+
+                <div class="relative">
+                    <Icon
+                        color="#3c58ff"
+                        icon="ep:arrow-down-bold"
                         class="ml-2 w-4 hover:w-5"
+                        @click="toggleDropdown"
                     />
+
+                    <div
+                        class="absolute right-0 mt-2 w-24 bg-white py-2 shadow-lg"
+                        v-show="isdropdown"
+                    >
+                        <div
+                            class="cursor-pointer px-4 py-1 font-bold text-fl-primary-900"
+                        >
+                            <router-link to="/" @click="clearinfo"
+                                >Logout</router-link
+                            >
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -38,6 +53,8 @@
 </template>
 
 <script setup lang="ts">
+import { Icon } from '@iconify/vue'
+import { ref } from 'vue'
 const props = defineProps({
     tenant: {
         type: String,
@@ -48,4 +65,13 @@ const props = defineProps({
         default: 'Dashboard',
     },
 })
+
+const isdropdown = ref(false)
+
+function toggleDropdown() {
+    isdropdown.value = !isdropdown.value
+}
+function clearinfo() {
+    localStorage.clear()
+}
 </script>
