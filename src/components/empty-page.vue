@@ -7,7 +7,7 @@
             <headerPage
                 tenant="apollo"
                 title="Dashboard"
-                @textClicked="showMenu = true"
+                @click="textClicked"
             />
         </div>
     </div>
@@ -17,5 +17,9 @@
 import { ref } from 'vue'
 import headerPage from './header-page.vue'
 import MenuSide from './menu-side.vue'
-const showMenu = ref(false)
+const showMenu = ref(true)
+
+function textClicked() {
+    showMenu.value = true
+}
 </script>
