@@ -86,7 +86,7 @@ function loginp() {
     }
     if (username.value === 'admin' && password.value === 'admin') {
         localStorage.setItem('data', 'admin')
-        router.push({ name: 'emptypage' })
+        router.push({ name: 'dashboard' })
     }
 }
 </script>

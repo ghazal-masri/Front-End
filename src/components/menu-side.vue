@@ -9,10 +9,9 @@
             </div>
         </div>
         <div>
-            <img
-                src="https://www.clker.com/cliparts/M/e/l/c/j/v/water-icon-white.svg.hi.png"
-                alt="flowless"
-                class="ml-12 mt-10 h-36 w-24"
+            <Icon
+                icon="mdi:pipe-disconnected"
+                class="ml-9 mt-10 h-36 w-36 text-white"
             />
         </div>
         <div
@@ -21,10 +20,22 @@
             <div v-for="(item, index) in menuItems" :key="index">
                 <div v-if="!item.subMenu">
                     <div
-                        class="flex items-center gap-x-1 rounded p-2 hover:bg-white hover:text-fl-primary-900"
+                        v-if="item.label === 'Water Quality'"
+                        @click="openwaterq"
+                        class="flex cursor-pointer items-center gap-x-1 rounded p-2 hover:bg-white hover:text-fl-primary-900"
                     >
                         <div class="text-xl"><Icon :icon="item.icon" /></div>
                         <div>{{ item.label }}</div>
+                    </div>
+                    <div v-else>
+                        <div
+                            class="flex items-center gap-x-1 rounded p-2 hover:bg-white hover:text-fl-primary-900"
+                        >
+                            <div class="text-xl">
+                                <Icon :icon="item.icon" />
+                            </div>
+                            <div>{{ item.label }}</div>
+                        </div>
                     </div>
                 </div>
 
@@ -38,6 +49,7 @@
 import { Icon } from '@iconify/vue'
 import { onMounted, ref } from 'vue'
 import subMenu from './sub-menu.vue'
+import { useRouter } from 'vue-router'
 export type MenuItemsType = {
     label: string
     icon: string
@@ -177,6 +189,11 @@ function init() {
             icon: 'emojione-monotone:octopus',
         },
     ]
+}
+const router = useRouter()
+
+function openwaterq() {
+    router.push({ name: 'waterquality' })
 }
 
 onMounted(init)

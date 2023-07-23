@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import pageLoginVue from '../components/page-login.vue'
-import emptypageVue from '../components/empty-page.vue'
+import dashboardVue from '../components/dashboard.vue'
+import errorpageVue from '../components/error-page.vue'
+import noauthVue from '../components/no-auth.vue'
+import waterqualityVue from '../components/water-quality.vue'
 const routes = [
     {
         path: '/',
@@ -8,9 +11,30 @@ const routes = [
         component: pageLoginVue,
     },
     {
-        path: '/empty-page',
-        name: 'emptypage',
-        component: emptypageVue,
+        path: '/dashboard',
+        name: 'dashboard',
+        component: dashboardVue,
+        meta: {
+            isAuth: true,
+        },
+    },
+    {
+        path: '/no-auth',
+        name: 'noauth',
+        component: noauthVue,
+        meta: {
+            isAuth: false,
+        },
+    },
+    {
+        path: '/:catchAll(.*)',
+        name: 'errorpage',
+        component: errorpageVue,
+    },
+    {
+        path: '/water-quality',
+        name: 'waterquality',
+        component: waterqualityVue,
         meta: {
             isAuth: true,
         },
