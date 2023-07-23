@@ -2,9 +2,9 @@
     <nav class="flex h-16 items-center justify-between bg-white shadow-md">
         <div
             class="ml-6 text-xl font-bold text-fl-primary-900 hover:text-fl-primary-300"
-            @click="textClicked"
+            
         >
-            {{ title }}
+            <span @click="textClicked">{{ title }}</span>
         </div>
         <div class="flex items-center justify-between">
             <div>
