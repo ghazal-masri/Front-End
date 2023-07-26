@@ -1,11 +1,11 @@
 <template>
     <div class="h-full w-56 bg-fl-primary-900">
-        <div class="relative">
+        <div>
             <div
-                class="absolute right-2 top-2 cursor-pointer p-1 text-xl font-semibold text-white hover:text-2xl"
+                class="right-2 top-2 float-right cursor-pointer p-1 text-xl font-semibold text-white hover:text-2xl"
                 @click="$emit('closeMenu')"
             >
-                X
+                <Icon icon="ep:close-bold" class="m-2 text-white" />
             </div>
         </div>
         <div>

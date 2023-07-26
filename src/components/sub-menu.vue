@@ -4,10 +4,15 @@
             class="flex items-center justify-between rounded p-2 hover:bg-white hover:text-fl-primary-900"
         >
             <div class="flex items-center gap-x-1">
-                <div class="text-xl"><Icon :icon="data.icon" /></div>
+                <div class="text-xl">
+                    <Icon
+                        :icon="data.icon"
+                        
+                    />
+                </div>
                 <div>{{ data.label }}</div>
             </div>
-            <div><Icon icon="ep:arrow-right-bold" /></div>
+            <div><Icon icon="ep:arrow-right-bold" :class="displaySubmenu === true ? 'rotate-90' : ' '" /></div>
         </div>
     </button>
     <div v-if="displaySubmenu">

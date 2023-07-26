@@ -2,9 +2,8 @@
     <nav class="flex h-16 items-center justify-between bg-white shadow-md">
         <div
             class="ml-6 text-xl font-bold text-fl-primary-900 hover:text-fl-primary-300"
-            
         >
-            <span @click="textClicked">{{ title }}</span>
+            <button @click="textClicked">{{ title }}</button>
         </div>
         <div class="flex items-center justify-between">
             <div>
@@ -17,7 +16,7 @@
                 <div class="mr-10 flex items-center">
                     <Icon
                         icon="mingcute:user-4-line"
-                        class="text-4xl text-fl-primary-900 hover:shadow-md"
+                        class="rounded-full text-4xl text-fl-primary-900 hover:shadow-md"
                     />
 
                     <div
@@ -29,7 +28,8 @@
                     <div class="relative">
                         <Icon
                             icon="ep:arrow-down-bold"
-                            class="ml-2 w-4 text-fl-primary-900 hover:w-5"
+                            :class="isdropdown === true ? 'rotate-180' : ' '"
+                            class="ml-2 w-4 text-fl-primary-900"
                         />
 
                         <div
