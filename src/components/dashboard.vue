@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen w-screen bg-fl-secondary-100">
+    <div class="min-h-screen w-screen bg-fl-secondary-100 md:flex-row">
         <div class="flex">
             <div class="flex flex-auto">
                 <MenuSide v-if="showMenu" @closeMenu="showMenu = false" />
@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="flex-grow">
-                    <tableview :tableData="tableData" />
+                    <table-view :table-data="tableData" :sticky-column="false"></table-view>
                 </div>
             </div>
         </div>
@@ -26,29 +26,25 @@
 import { ref } from 'vue'
 import headerPage from './header-page.vue'
 import MenuSide from './menu-side.vue'
+import tableView from './table-view.vue'
 const showMenu = ref(true)
-
 function textClicked() {
     showMenu.value = true
 }
 
-import tableview from './table-view.vue'
-
-type dataType = {
+export type dataType = {
     value: string
 
-    type: string | Date | number | GLfloat | boolean
+    type: string | Date | number
 }
 
-export type table = {
+export type tableType = {
     labels: string[]
 
     data: dataType[][]
-
-    sticky_column: boolean
 }
 
-const tableData: table = {
+const tableData: tableType = {
     labels: ['Time', 'Label', 'Value'],
     data: [
         [
@@ -105,6 +101,5 @@ const tableData: table = {
             { value: '7.31m³/hr', type: 'glfloat' },
         ],
     ],
-    sticky_column: true,
 }
 </script>

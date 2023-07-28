@@ -1,26 +1,26 @@
 <template>
-    <nav class="flex h-16 items-center justify-between bg-white shadow-md">
+    <nav class="flex flex-wrap justify-between bg-white px-6 py-1 shadow-md">
         <div
-            class="ml-6 text-xl font-bold text-fl-primary-900 hover:text-fl-primary-300"
+            class="my-auto ml-6 flex text-2xl font-bold text-fl-primary-900 hover:text-fl-primary-300"
         >
             <button @click="textClicked">{{ title }}</button>
         </div>
-        <div class="flex items-center justify-between">
+        <div class="flex items-center justify-between px-4 py-5">
             <div>
                 <Icon
                     icon="carbon:information-square-filled"
-                    class="mr-2 text-4xl text-fl-secondary-700 hover:shadow-md"
+                    class="mr-3 text-4xl text-fl-secondary-700 hover:shadow-md"
                 />
             </div>
             <button @click="toggleDropdown">
-                <div class="mr-10 flex items-center">
+                <div class="flex items-center">
                     <Icon
                         icon="mingcute:user-4-line"
                         class="rounded-full text-4xl text-fl-primary-900 hover:shadow-md"
                     />
 
                     <div
-                        class="font-semibold text-fl-primary-900 hover:text-fl-primary-300"
+                        class="font-semibold text-fl-primary-900 hover:text-fl-primary-300 "
                     >
                         {{ tenant }}
                     </div>
@@ -55,14 +55,9 @@
 import { Icon } from '@iconify/vue'
 import { ref } from 'vue'
 const props = defineProps({
-    tenant: {
-        type: String,
-        default: 'apollo',
-    },
-    title: {
-        type: String,
-        default: 'Dashboard',
-    },
+    tenant: String,
+
+    title: String,
 })
 
 const isdropdown = ref(false)

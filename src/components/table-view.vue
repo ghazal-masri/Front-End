@@ -1,35 +1,44 @@
 <template>
-    <div class="h-screen p-10">
-        <div class="relative h-96 overflow-auto rounded-lg shadow">
+    <div class="h-full w-full p-10">
+        <div class="relative max-h-96 overflow-auto rounded-lg shadow">
             <table class="w-full border text-base">
                 <thead>
                     <tr>
                         <th
-                            v-for="label in tableData.labels"
+                            v-for="(label, labelIndex) in tableData.labels"
                             :key="label"
-                            class="sticky -top-2 bg-white p-3 text-left tracking-wide text-fl-primary-900"
+                            class="sticky top-0 z-20 bg-white p-3 text-left tracking-wide text-fl-primary-900"
                         >
                             <div class="flex items-center">
-                                <div>{{ label }}</div>
+                                <div v-if="!showHide[labelIndex]" class="flex">
+                                    <div>
+                                        {{ label }}
+                                    </div>
 
-                                <div class="cursor-pointer pl-4">
-                                    <Icon icon="ci:arrow-up-lg" />
+                                    <button class="pl-4">
+                                        <Icon icon="ci:arrow-up-lg" />
+                                    </button>
+                                    <button>
+                                        <Icon icon="ci:arrow-down-lg" />
+                                    </button>
                                 </div>
-                                <div class="cursor-pointer">
-                                    <Icon icon="ci:arrow-down-lg" />
-                                </div>
-                                <div class="cursor-pointer pl-4">
+                                <button
+                                    class="pl-4"
+                                    @click="toggleColumns(labelIndex)"
+                                >
                                     <Icon icon="basil:eye-outline" />
-                                </div>
+                                </button>
                             </div>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <dataview
-                        :data="tableData.data"
+                    <data-view
+                        :table-data="tableData.data"
                         @on-cell-clicked="cellClicked"
-                    />
+                        :sticky-column="stickyColumn"
+                        :show-hide="showHide"
+                    ></data-view>
                 </tbody>
             </table>
         </div>
@@ -37,13 +46,25 @@
 </template>
 
 <script setup lang="ts">
-import dataview from './data-view.vue'
+import { ref } from 'vue'
+import { tableType } from './dashboard.vue'
+import dataView from './data-view.vue'
 import { Icon } from '@iconify/vue'
 
-const { tableData } = defineProps(['tableData'])
+interface PropsType {
+    tableData: tableType
+    stickyColumn?: boolean
+}
+export type showHideType = { [key: number]: boolean }
+
+const props = defineProps<PropsType>()
+const showHide = ref<showHideType>([])
 
 function cellClicked(col: number, row: number) {
     console.log(col)
     console.log(row)
+}
+function toggleColumns(index: number) {
+    showHide.value[index] = !showHide.value[index]
 }
 </script>
