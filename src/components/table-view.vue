@@ -1,5 +1,5 @@
 <template>
-    <div class="h-full p-10">
+    <div class=" p-10 w-max">
         <div class="relative max-h-96 overflow-auto rounded-lg shadow  scrollbar-thumb-fl-primary-900 scrollbar-thin scrollbar-track-white">
             <table class="w-full border text-base ">
                 <thead>

@@ -1,17 +1,18 @@
 <template>
-    <div class="md:w-56 w-screen bg-fl-primary-900">
-        
-            <div
-                class="float-right cursor-pointer p-1 md:text-xl font-semibold text-white text-2xl mt-3 md:mt-0"
-                @click="$emit('closeMenu')"
-            >
-                <Icon icon="ep:close-bold" class="m-2 text-white" />
-            </div>
-        
+    <div
+        class="sticky top-0 h-screen w-screen overflow-y-auto bg-fl-primary-900 scrollbar-thin scrollbar-track-white scrollbar-thumb-fl-primary-500 md:w-56 md:pt-5"
+    >
+        <div
+            class="float-right mt-3 cursor-pointer p-1 text-2xl font-semibold text-white md:mt-0 md:text-xl"
+            @click="$emit('closeMenu')"
+        >
+            <Icon icon="ep:close-bold" class="m-2 text-white" />
+        </div>
+
         <div class="p-4">
             <Icon
                 icon="mdi:pipe-disconnected"
-                class=" text-white  md:h-36 md:w-36 md:translate-x-0  h-10 w-10 m-auto "
+                class="m-auto h-10 w-10 text-white md:h-36 md:w-36 md:translate-x-0"
             />
         </div>
         <div
