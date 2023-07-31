@@ -1,5 +1,5 @@
 <template>
-    <div class="h-full w-56 bg-fl-primary-900">
+    <div class="h-full w-56 bg-fl-primary-900 md:relative">
         <div>
             <div
                 class="right-2 top-2 float-right cursor-pointer p-1 text-xl font-semibold text-white hover:text-2xl"

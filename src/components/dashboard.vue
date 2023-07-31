@@ -14,8 +14,14 @@
                     />
                 </div>
 
-                <div class="flex-grow">
-                    <table-view :table-data="tableData" :sticky-column="false"></table-view>
+                <div class="m-auto">
+                    <table-view
+                        :table-data="tableData"
+                        :sticky-column="true"
+                    ></table-view>
+                </div>
+                <div class="m-auto">
+                    <Map> </Map>
                 </div>
             </div>
         </div>
@@ -27,6 +33,7 @@ import { ref } from 'vue'
 import headerPage from './header-page.vue'
 import MenuSide from './menu-side.vue'
 import tableView from './table-view.vue'
+import Map from './map.vue'
 const showMenu = ref(true)
 function textClicked() {
     showMenu.value = true
