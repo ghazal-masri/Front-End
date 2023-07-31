@@ -1,7 +1,7 @@
 <template>
     <button @click="subMenuClicked" v-if="data.subMenu" class="w-full">
         <div
-            class="flex items-center justify-between rounded p-2 hover:bg-white hover:text-fl-primary-900"
+            class="flex items-center justify-between rounded p-2 hover:bg-white hover:text-fl-primary-900 transition duration-700"
         >
             <div class="flex items-center gap-x-1">
                 <div class="text-xl">
@@ -12,7 +12,7 @@
                 </div>
                 <div>{{ data.label }}</div>
             </div>
-            <div><Icon icon="ep:arrow-right-bold" :class="displaySubmenu === true ? 'rotate-90' : ' '" /></div>
+            <div><Icon icon="ep:arrow-right-bold" :class="displaySubmenu === true ? 'rotate-90 transition duration-700' : 'transition duration-700 '" /></div>
         </div>
     </button>
     <div v-if="displaySubmenu">

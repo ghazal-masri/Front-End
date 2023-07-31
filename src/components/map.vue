@@ -1,5 +1,5 @@
 <template>
-    <div id="map" class="h-auto p-10"></div>
+    <div id="map" class="h-auto p-10 w-auto"></div>
 </template>
 <script setup lang="ts">
 import mapboxgl from 'mapbox-gl'
