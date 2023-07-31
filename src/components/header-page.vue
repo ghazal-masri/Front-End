@@ -1,11 +1,13 @@
 <template>
-    <nav class="flex flex-wrap justify-between bg-white px-6 py-1 shadow-md">
+    <nav
+        class="flex w-full flex-wrap justify-between bg-white px-6 py-1 shadow-md"
+    >
         <div
-            class="my-auto ml-6 flex text-2xl font-bold text-fl-primary-900 hover:text-fl-primary-300"
+            class="my-auto md:ml-6 flex text-2xl font-bold text-fl-primary-900 hover:text-fl-primary-300 transition duration-500"
         >
             <button @click="textClicked">{{ title }}</button>
         </div>
-        <div class="flex items-center justify-between px-4 py-5">
+        <div class="flex items-center justify-between md:px-4 py-5">
             <div>
                 <Icon
                     icon="carbon:information-square-filled"
@@ -20,7 +22,7 @@
                     />
 
                     <div
-                        class="font-semibold text-fl-primary-900 hover:text-fl-primary-300 "
+                        class="font-semibold text-fl-primary-900 hover:text-fl-primary-300"
                     >
                         {{ tenant }}
                     </div>
@@ -28,7 +30,11 @@
                     <div class="relative">
                         <Icon
                             icon="ep:arrow-down-bold"
-                            :class="isdropdown === true ? 'rotate-180' : ' '"
+                            :class="
+                                isdropdown === true
+                                    ? 'rotate-180 transition duration-700'
+                                    : ' transition duration-700'
+                            "
                             class="ml-2 w-4 text-fl-primary-900"
                         />
 

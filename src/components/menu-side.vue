@@ -1,17 +1,17 @@
 <template>
-    <div class="h-full w-56 bg-fl-primary-900 md:relative">
-        <div>
+    <div class="md:w-56 w-screen bg-fl-primary-900">
+        
             <div
-                class="right-2 top-2 float-right cursor-pointer p-1 text-xl font-semibold text-white hover:text-2xl"
+                class="float-right cursor-pointer p-1 md:text-xl font-semibold text-white text-2xl mt-3 md:mt-0"
                 @click="$emit('closeMenu')"
             >
                 <Icon icon="ep:close-bold" class="m-2 text-white" />
             </div>
-        </div>
-        <div>
+        
+        <div class="p-4">
             <Icon
                 icon="mdi:pipe-disconnected"
-                class="ml-9 mt-10 h-36 w-36 text-white"
+                class=" text-white  md:h-36 md:w-36 md:translate-x-0  h-10 w-10 m-auto "
             />
         </div>
         <div
@@ -22,14 +22,14 @@
                     <div
                         v-if="item.label === 'Water Quality'"
                         @click="openwaterq"
-                        class="flex cursor-pointer items-center gap-x-1 rounded p-2 hover:bg-white hover:text-fl-primary-900"
+                        class="flex cursor-pointer items-center gap-x-1 rounded p-2 transition duration-700 hover:bg-white hover:text-fl-primary-900"
                     >
                         <div class="text-xl"><Icon :icon="item.icon" /></div>
                         <div>{{ item.label }}</div>
                     </div>
                     <div v-else>
                         <div
-                            class="flex items-center gap-x-1 rounded p-2 hover:bg-white hover:text-fl-primary-900"
+                            class="flex items-center gap-x-1 rounded p-2 transition duration-700 hover:bg-white hover:text-fl-primary-900"
                         >
                             <div class="text-xl">
                                 <Icon :icon="item.icon" />
