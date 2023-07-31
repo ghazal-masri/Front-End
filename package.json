@@ -10,8 +10,11 @@
         "lint": "eslint . --ext .js,.vue,.ts --fix"
     },
     "dependencies": {
+        "@types/chart.js": "^2.9.37",
+        "chart.js": "^4.3.2",
         "mapbox-gl": "^2.15.0",
-        "vue": "^3.2.47",
+        "vue": "^3.2.36",
+        "vue-chartjs": "^5.2.0",
         "vue-router": "^4.2.2"
     },
     "devDependencies": {

@@ -1,9 +1,9 @@
 <template>
     <div class="relative min-h-screen w-screen bg-fl-secondary-100 md:flex">
         <div
-            class="flex justify-between  bg-fl-primary-900 text-white md:hidden"
+            class="flex justify-between bg-fl-primary-900 text-white md:hidden"
         >
-            <div class="m-auto pl-14 block p-4 ">
+            <div class="m-auto block p-4 pl-14">
                 <Icon
                     icon="mdi:pipe-disconnected"
                     class="h-10 w-10 text-white"
@@ -17,11 +17,10 @@
             </button>
         </div>
         <div
-        :class="{
-            '-translate-x-full': showMenu===false,
-            
-        }"
-            class="absolute inset-y-0 left-0 flex transform transition duration-500 md:relative md:translate-x-0 z-30"
+            :class="{
+                '-translate-x-full': showMenu === false,
+            }"
+            class=" absolute inset-y-0 left-0 z-30 flex transform transition duration-500 md:relative md:translate-x-0"
         >
             <MenuSide v-if="showMenu" @closeMenu="showMenu = false" />
         </div>
@@ -44,6 +43,9 @@
             <div class="m-auto">
                 <Map> </Map>
             </div>
+            <div class="m-auto">
+                <Chart></Chart>
+            </div>
         </div>
     </div>
 </template>
@@ -55,14 +57,14 @@ import headerPage from './header-page.vue'
 import MenuSide from './menu-side.vue'
 import tableView from './table-view.vue'
 import Map from './map.vue'
-
+import Chart from './chart.vue'
 
 const showMenu = ref(true)
 function textClicked() {
     showMenu.value = true
 }
-function toggleMobMenu(){
-    showMenu.value=!showMenu.value
+function toggleMobMenu() {
+    showMenu.value = !showMenu.value
 }
 export type dataType = {
     value: string

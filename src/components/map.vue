@@ -1,5 +1,6 @@
 <template>
-    <div id="map" class="h-auto p-10 w-auto"></div>
+    <div class="bg-white rounded shadow">
+    <div id="map" class="h-auto p-10"></div></div>
 </template>
 <script setup lang="ts">
 import mapboxgl from 'mapbox-gl'
