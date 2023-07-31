@@ -1,7 +1,7 @@
 <template>
-    <div class="h-full w-full p-10">
-        <div class="relative max-h-96 overflow-auto rounded-lg shadow">
-            <table class="w-full border text-base">
+    <div class="h-full p-10">
+        <div class="relative max-h-96 overflow-auto rounded-lg shadow  scrollbar-thumb-fl-primary-900 scrollbar-thin scrollbar-track-white">
+            <table class="w-full border text-base ">
                 <thead>
                     <tr>
                         <th

@@ -2,8 +2,11 @@
     "compilerOptions": {
         "target": "ES2020",
         "useDefineForClassFields": true,
+        "allowSyntheticDefaultImports": true,
         "module": "ESNext",
         "lib": ["ES2020", "DOM", "DOM.Iterable"],
+        "types": ["@types/node", "@types/mapbox-gl"],
+        "typeRoots": ["node_modules/@types"],
         "skipLibCheck": true,
 
         /* Bundler mode */

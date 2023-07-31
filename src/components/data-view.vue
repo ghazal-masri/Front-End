@@ -22,7 +22,7 @@
             <div class="flex items-center">
                 <input
                     type="checkbox"
-                    class="mr-5 h-10 w-4"
+                    class="mr-3 h-10 w-4"
                     v-if="colIndex === 0"
                 />
                 <span v-if="!showHide[colIndex]"> {{ item.value }}</span>
