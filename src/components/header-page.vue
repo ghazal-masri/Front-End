@@ -3,7 +3,7 @@
         class="flex w-full flex-wrap justify-between bg-white px-6 py-1 shadow-md"
     >
         <div
-            class="my-auto md:ml-6 flex text-2xl font-bold text-fl-primary-900 hover:text-fl-primary-300 transition duration-500"
+            class="my-auto md:pl-6 flex text-2xl font-bold text-fl-primary-900 hover:text-fl-primary-300 transition duration-500"
         >
             <button @click="textClicked">{{ title }}</button>
         </div>
