@@ -1,13 +1,15 @@
 <template>
-    <div class="mt-10 flex h-fit w-fit rounded bg-white p-6 shadow">
+    <styles-component title="Chart">
+    <div class="mt-10 flex h-fit w-fit m-auto">
         <div><canvas ref="lineChartCanvas" class="h-96 w-96"></canvas></div>
         <div><canvas ref="barChartCanvas" class="h-96 w-96"></canvas></div>
-    </div>
+    </div></styles-component>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import Chart from 'chart.js/auto'
+import stylesComponent from './stylesComponent.vue'
 
 const lineChartCanvas = ref<HTMLCanvasElement | null>(null)
 const barChartCanvas = ref<HTMLCanvasElement | null>(null)

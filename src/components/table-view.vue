@@ -1,5 +1,6 @@
 <template>
-    <div class=" p-10 w-max">
+    <styles-component title="Table">
+    <div class="mt-10">
         <div class="relative max-h-96 overflow-auto rounded-lg shadow  scrollbar-thumb-fl-primary-900 scrollbar-thin scrollbar-track-white">
             <table class="w-full border text-base ">
                 <thead>
@@ -42,7 +43,7 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </div></styles-component>
 </template>
 
 <script setup lang="ts">
@@ -50,7 +51,7 @@ import { ref } from 'vue'
 import { tableType } from './dashboard.vue'
 import dataView from './data-view.vue'
 import { Icon } from '@iconify/vue'
-
+import stylesComponent from './stylesComponent.vue'
 interface PropsType {
     tableData: tableType
     stickyColumn?: boolean

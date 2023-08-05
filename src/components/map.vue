@@ -1,10 +1,11 @@
 <template>
-    <div class="bg-white rounded shadow">
-    <div id="map" class="h-auto p-10"></div></div>
+    <styles-component title="Map">
+        <div id="map" class="mt-10 h-fit w-full"></div
+    ></styles-component>
 </template>
 <script setup lang="ts">
 import mapboxgl from 'mapbox-gl'
-
+import stylesComponent from './stylesComponent.vue'
 mapboxgl.accessToken =
     'pk.eyJ1IjoiZ2hhemFsNDciLCJhIjoiY2xrcHg0bXVnMGVscjNzcG5neTVwazhveCJ9.u-lGMBBE9nU9FEnPmCFT0g'
 

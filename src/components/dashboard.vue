@@ -1,5 +1,5 @@
 <template>
-    <div class="relative min-h-screen w-screen bg-fl-secondary-100 md:flex">
+    <div class="relative min-h-screen w-full bg-fl-secondary-100 md:flex">
         <div
             class="flex justify-between bg-fl-primary-900 text-white md:hidden"
         >
@@ -20,7 +20,7 @@
             :class="{
                 '-translate-x-full': showMenu === false,
             }"
-            class=" absolute inset-y-0 left-0 z-30 flex transform transition duration-500 md:relative md:translate-x-0"
+            class="absolute inset-y-0 left-0 z-30 flex transform transition duration-500 md:relative md:translate-x-0"
         >
             <MenuSide v-if="showMenu" @closeMenu="showMenu = false" />
         </div>
@@ -34,16 +34,16 @@
                 />
             </div>
 
-            <div class="m-auto">
+            <div>
                 <table-view
                     :table-data="tableData"
                     :sticky-column="true"
                 ></table-view>
             </div>
-            <div class="m-auto">
+            <div>
                 <Map> </Map>
             </div>
-            <div class="m-auto">
+            <div>
                 <Chart></Chart>
             </div>
         </div>
