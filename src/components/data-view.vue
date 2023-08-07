@@ -47,13 +47,7 @@ interface PropsType {
 
 const props = defineProps<PropsType>()
 let cellsToView = ref<dataType[][]>([])
-watch(
-    () => props.tableData[0][0].value[9],
-    () => {
-        cellsToView.value = props.tableData
-        console.log('hello')
-    }
-)
+
 
 function cellClicked(col: number, row: number) {
     emit('onCellClicked', col, row)
@@ -61,7 +55,7 @@ function cellClicked(col: number, row: number) {
 
 function init() {
     cellsToView.value = props.tableData
-    console.log(props.tableData[0][0].value)
+   
 }
 onMounted(init)
 </script>

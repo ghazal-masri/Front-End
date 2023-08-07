@@ -75,24 +75,15 @@ function toggleColumns(index: number) {
 }
 
 function sortChanged(sortType: EsortButtonType) {
-    let dataToSort = props.tableData.data
-
-    dataToSort.sort((a, b) => {
-        return new Date(a[0].value) - new Date(b[0].value)
-    })
-
-    dataToView.value.data = dataToSort
-    
+    sortType === EsortButtonType.UP &&
+        dataToView.value.data.sort((a, b) => {
+            return new Date(a[0].value) - new Date(b[0].value)
+        })
+    sortType === EsortButtonType.DOWN &&
+        dataToView.value.data.sort((a, b) => {
+            return -new Date(a[0].value) - new Date(b[0].value)
+        })
 }
-
-// watch(
-//     () => dataToView.value.data[0][0].value,
-//     () => {
-//         cellsToView.value = props.tableData
-//         console.log('hello')
-//     },
-//     { deep: true }
-// )
 
 function init() {
     dataToView.value = props.tableData
