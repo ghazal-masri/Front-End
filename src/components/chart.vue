@@ -1,9 +1,12 @@
 <template>
     <styles-component title="Chart">
+    <div id="myChart"></div>
+</styles-component>
+    <!-- 
     <div class="mt-10 flex h-fit w-fit m-auto">
         <div><canvas ref="lineChartCanvas" class="h-96 w-96"></canvas></div>
         <div><canvas ref="barChartCanvas" class="h-96 w-96"></canvas></div>
-    </div></styles-component>
+    </div>-->
 </template>
 
 <script setup lang="ts">
@@ -86,4 +89,41 @@ onMounted(() => {
         }
     }
 })
+
+function init() {
+    const ctx = document.getElementById('myChart') as HTMLCanvasElement
+    let newCanvas = document.createElement('canvas')
+    ctx['id'] = 'myChart'
+    ctx.appendChild(newCanvas)
+    if (ctx) {
+        new Chart(newCanvas, {
+            type: 'line',
+            data: {
+                
+                datasets: [
+                    {
+                        label: '# of Votes',
+                        data: [
+                            { x: 'Red', y: '12' },
+                            { x: 'Blue', y: '19' },
+                            { x: 'Yellow', y: '3' },
+                            { x: 'Green', y: '5' },
+                            { x: 'Purple', y: '2' },
+                            { x: 'Orange', y: '3' },
+                        ],
+                        borderWidth: 1,
+                    },
+                ],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                    },
+                },
+            },
+        })
+    }
+}
+onMounted(init)
 </script>

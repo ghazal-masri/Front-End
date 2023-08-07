@@ -1,6 +1,6 @@
 <template>
     <tr
-        v-for="(row, rowIndex) in tableData"
+        v-for="(row, rowIndex) in cellsToView"
         :key="rowIndex"
         :class="{
             'bg-fl-secondary-700': rowIndex % 2 === 0,
@@ -32,8 +32,12 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, ref, watch } from 'vue'
 import { dataType } from './dashboard.vue'
 import { showHideType } from './table-view.vue'
+const emit = defineEmits<{
+    (e: 'onCellClicked', col: number, row: number): void
+}>()
 
 interface PropsType {
     tableData: dataType[][]
@@ -42,12 +46,16 @@ interface PropsType {
 }
 
 const props = defineProps<PropsType>()
+let cellsToView = ref<dataType[][]>([])
 
-const emit = defineEmits<{
-    (e: 'onCellClicked', col: number, row: number): void
-}>()
 
 function cellClicked(col: number, row: number) {
     emit('onCellClicked', col, row)
 }
+
+function init() {
+    cellsToView.value = props.tableData
+   
+}
+onMounted(init)
 </script>
