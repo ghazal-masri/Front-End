@@ -34,7 +34,7 @@
                 />
             </div>
 
-            <div>
+            <div v-if="tableData?.labels?.length">
                 <table-view
                     :table-data="tableData"
                     :sticky-column="true"
@@ -52,12 +52,14 @@
 
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import headerPage from './header-page.vue'
 import MenuSide from './menu-side.vue'
 import tableView from './table-view.vue'
 import simpleMap from './simple-map.vue'
 import Chart from './chart.vue'
+import { tableType } from '../Api/DataTableAPI/DataTableAPI.Types'
+import { useDataTableStore } from '../services/data-table.service'
 
 const showMenu = ref(true)
 function textClicked() {
@@ -66,84 +68,17 @@ function textClicked() {
 function toggleMobMenu() {
     showMenu.value = !showMenu.value
 }
-export type dataType = {
-    value: string
 
-    type: string | Date | number
-}
+let tableData = ref<tableType>({} as tableType)
 
-export type tableType = {
-    labels: string[]
-
-    data: dataType[][]
-}
-
-const tableData: tableType = {
-    labels: ['Time', 'Label', 'Value'],
-    data: [
-        [
-            { value: '2022-10-23T20:45:52.078Z', type: 'date' },
-
-            { value: 'Z1 Demand', type: 'string' },
-            { value: '7.31m³/hr', type: 'string' },
-        ],
-        [
-            { value: '2022-10-12T20:45:52.078Z', type: 'date' },
-
-            { value: 'Z1 Demand', type: 'string' },
-            { value: '10.31m³/hr', type: 'string' },
-        ],
-        [
-            { value: '2022-10-01T20:45:52.078Z', type: 'date' },
-
-            { value: 'Z1 Demand', type: 'string' },
-            { value: '5.31m³/hr', type: 'string' },
-        ],
-        [
-            { value: '2022-10-03T20:45:52.078Z', type: 'date' },
-
-            { value: 'Z1 Demand', type: 'string' },
-            { value: '4.31m³/hr', type: 'string' },
-        ],
-        [
-            { value: '2022-10-22T20:45:52.078Z', type: 'date' },
-
-            {
-                value: 'Z1 Demand',
-                type: 'string',
-            },
-            { value: '14.31m³/hr', type: 'string' },
-        ],
-        [
-            { value: '2022-10-11T20:45:52.078Z', type: 'date' },
-
-            { value: 'Z1 Demand', type: 'string' },
-            { value: '2.31m³/hr', type: 'string' },
-        ],
-        [
-            { value: '2022-10-18T20:45:52.078Z', type: 'date' },
-
-            { value: 'Z1 Demand', type: 'string' },
-            { value: '1.31m³/hr', type: 'string' },
-        ],
-        [
-            { value: '2022-10-09T20:45:52.078Z', type: 'date' },
-
-            { value: 'Z1 Demand', type: 'string' },
-            { value: '30.31m³/hr', type: 'string' },
-        ],
-        [
-            { value: '2022-10-10T20:45:52.078Z', type: 'date' },
-
-            { value: 'Z1 Demand', type: 'string' },
-            { value: '43.31m³/hr', type: 'string' },
-        ],
-        [
-            { value: '2022-10-29T20:45:52.078Z', type: 'date' },
-
-            { value: 'Z1 Demand', type: 'string' },
-            { value: '27.31m³/hr', type: 'string' },
-        ],
-    ],
-}
+const tableDataStore = useDataTableStore()
+onMounted(async () => {
+    try {
+        await tableDataStore.loadDataTabel()
+        tableData.value = tableDataStore.dataTable
+        console.log(tableDataStore.dataTable)
+    } catch (error) {
+        throw error
+    }
+})
 </script>

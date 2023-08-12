@@ -36,7 +36,7 @@ interface PropsType {
 
 function subMenuClicked() {
     displaySubmenu.value = !displaySubmenu.value
-    console.log(displaySubmenu.value)
+   
 }
 
 const prop = defineProps<PropsType>()

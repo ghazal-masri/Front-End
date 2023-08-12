@@ -1,0 +1,147 @@
+{
+    "data": {
+        "labels": ["Time", "Label", "Value"],
+        "data": [
+            [
+                {
+                    "value": "2022-10-23T20:45:52.078Z",
+                    "type": "date"
+                },
+                {
+                    "value": "Z1 Demand",
+                    "type": "string"
+                },
+                {
+                    "value": "7.31m³/hr",
+                    "type": "string"
+                }
+            ],
+            [
+                {
+                    "value": "2022-10-12T20:45:52.078Z",
+                    "type": "date"
+                },
+                {
+                    "value": "Z1 Demand",
+                    "type": "string"
+                },
+                {
+                    "value": "10.31m³/hr",
+                    "type": "string"
+                }
+            ],
+            [
+                {
+                    "value": "2022-10-01T20:45:52.078Z",
+                    "type": "date"
+                },
+                {
+                    "value": "Z1 Demand",
+                    "type": "string"
+                },
+                {
+                    "value": "5.31m³/hr",
+                    "type": "string"
+                }
+            ],
+            [
+                {
+                    "value": "2022-10-03T20:45:52.078Z",
+                    "type": "date"
+                },
+                {
+                    "value": "Z1 Demand",
+                    "type": "string"
+                },
+                {
+                    "value": "4.31m³/hr",
+                    "type": "string"
+                }
+            ],
+            [
+                {
+                    "value": "2022-10-22T20:45:52.078Z",
+                    "type": "date"
+                },
+                {
+                    "value": "Z1 Demand",
+                    "type": "string"
+                },
+                {
+                    "value": "14.31m³/hr",
+                    "type": "string"
+                }
+            ],
+            [
+                {
+                    "value": "2022-10-11T20:45:52.078Z",
+                    "type": "date"
+                },
+                {
+                    "value": "Z1 Demand",
+                    "type": "string"
+                },
+                {
+                    "value": "2.31m³/hr",
+                    "type": "string"
+                }
+            ],
+            [
+                {
+                    "value": "2022-10-18T20:45:52.078Z",
+                    "type": "date"
+                },
+                {
+                    "value": "Z1 Demand",
+                    "type": "string"
+                },
+                {
+                    "value": "1.31m³/hr",
+                    "type": "string"
+                }
+            ],
+            [
+                {
+                    "value": "2022-10-09T20:45:52.078Z",
+                    "type": "date"
+                },
+                {
+                    "value": "Z1 Demand",
+                    "type": "string"
+                },
+                {
+                    "value": "30.31m³/hr",
+                    "type": "string"
+                }
+            ],
+            [
+                {
+                    "value": "2022-10-10T20:45:52.078Z",
+                    "type": "date"
+                },
+                {
+                    "value": "Z1 Demand",
+                    "type": "string"
+                },
+                {
+                    "value": "43.31m³/hr",
+                    "type": "string"
+                }
+            ],
+            [
+                {
+                    "value": "2022-10-29T20:45:52.078Z",
+                    "type": "date"
+                },
+                {
+                    "value": "Z1 Demand",
+                    "type": "string"
+                },
+                {
+                    "value": "27.31m³/hr",
+                    "type": "string"
+                }
+            ]
+        ]
+    }
+}

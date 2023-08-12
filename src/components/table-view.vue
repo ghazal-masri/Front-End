@@ -50,7 +50,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue'
+import { onMounted, ref } from 'vue'
 import { tableType } from './dashboard.vue'
 import dataView from './data-view.vue'
 import { Icon } from '@iconify/vue'
@@ -67,8 +67,7 @@ const props = defineProps<PropsType>()
 let showHide = ref<showHideType>([])
 let dataToView = ref<tableType>({} as tableType)
 function cellClicked(col: number, row: number) {
-    console.log(col)
-    console.log(row)
+
 }
 function toggleColumns(index: number) {
     showHide.value[index] = !showHide.value[index]
@@ -87,6 +86,7 @@ function sortChanged(sortType: EsortButtonType) {
 
 function init() {
     dataToView.value = props.tableData
+    
 }
 onMounted(init)
 </script>
