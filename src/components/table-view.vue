@@ -1,6 +1,6 @@
 <template>
     <styles-component title="Table">
-        <div class="mt-10">
+        <div>
             <div
                 class="relative max-h-96 overflow-auto rounded-lg shadow scrollbar-thin scrollbar-track-white scrollbar-thumb-fl-primary-900"
             >
@@ -38,41 +38,43 @@
                     <tbody>
                         <data-view
                             v-if="dataToView?.data?.length"
-                            :table-data="dataToView.data || []"
+                            :table-data="dataToView.data"
+                            :start-row="startRow"
+                            :end-row="endRow"
                             @on-cell-clicked="cellClicked"
                             :sticky-column="stickyColumn"
                             :show-hide="showHide"
                         ></data-view>
                     </tbody>
                 </table>
-            </div></div
+            </div>
+            <pagination-style
+                @on-next-clicked="nextClicked"
+                @on-prev-clicked="prevClicked"
+                :first-index="firstIndex"
+                :last-index="lastIndex"
+            ></pagination-style></div
     ></styles-component>
 </template>
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { tableType } from './dashboard.vue'
 import dataView from './data-view.vue'
 import { Icon } from '@iconify/vue'
 import stylesComponent from './stylesComponent.vue'
 import sortButton from './sort-button/sort-button.vue'
 import { EsortButtonType } from './sort-button/sort-button.type'
+import { tableType } from '../Api/DataTableAPI/DataTableAPI.Types'
+import paginationStyle from './pagination-style.vue'
+
 interface PropsType {
     tableData: tableType
     stickyColumn?: boolean
 }
 export type showHideType = { [key: number]: boolean }
-
-const props = defineProps<PropsType>()
-let showHide = ref<showHideType>([])
-let dataToView = ref<tableType>({} as tableType)
-function cellClicked(col: number, row: number) {
-
-}
 function toggleColumns(index: number) {
     showHide.value[index] = !showHide.value[index]
 }
-
 function sortChanged(sortType: EsortButtonType) {
     sortType === EsortButtonType.UP &&
         dataToView.value.data.sort((a, b) => {
@@ -84,9 +86,31 @@ function sortChanged(sortType: EsortButtonType) {
         })
 }
 
+const props = defineProps<PropsType>()
+function cellClicked(col: number, row: number) {}
+let showHide = ref<showHideType>([])
+let dataToView = ref<tableType>({} as tableType)
+
+const totalPages = ref<number>(Math.floor(props.tableData.data.length / 10))
+let firstIndex = ref<number>(0)
+const lastIndex = ref<number>(totalPages.value)
+const totalRowsPerPage = ref<number>(10)
+let startRow = ref<number>(0)
+let endRow = ref<number>(totalRowsPerPage.value)
+
+function nextClicked() {
+    firstIndex.value++
+    startRow.value = endRow.value
+    endRow.value = endRow.value + totalRowsPerPage.value
+}
+function prevClicked() {
+    firstIndex.value--
+    endRow.value = startRow.value
+    startRow.value = startRow.value - totalRowsPerPage.value
+}
+
 function init() {
     dataToView.value = props.tableData
-    
 }
 onMounted(init)
 </script>
