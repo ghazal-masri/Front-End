@@ -32,9 +32,9 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue'
-import { dataType } from './dashboard.vue'
+import { onMounted, ref, watchEffect } from 'vue'
 import { showHideType } from './table-view.vue'
+import { dataType } from '../Api/DataTableAPI/DataTableAPI.Types'
 const emit = defineEmits<{
     (e: 'onCellClicked', col: number, row: number): void
 }>()
@@ -43,19 +43,27 @@ interface PropsType {
     tableData: dataType[][]
     stickyColumn?: boolean
     showHide: showHideType
+    startRow: number
+    endRow: number
 }
 
 const props = defineProps<PropsType>()
 let cellsToView = ref<dataType[][]>([])
-
-
+let startRow = ref<number>(props.startRow)
+let endRow = ref<number>(props.endRow)
 function cellClicked(col: number, row: number) {
     emit('onCellClicked', col, row)
 }
 
+watchEffect(() => {
+    startRow.value = props.startRow
+    endRow.value = props.endRow
+    init()
+})
+
 function init() {
     cellsToView.value = props.tableData
-   
+    cellsToView.value = cellsToView.value.slice(startRow.value, endRow.value)
 }
 onMounted(init)
 </script>

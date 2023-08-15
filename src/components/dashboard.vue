@@ -76,7 +76,6 @@ onMounted(async () => {
     try {
         await tableDataStore.loadDataTabel()
         tableData.value = tableDataStore.dataTable
-        console.log(tableDataStore.dataTable)
     } catch (error) {
         throw error
     }

@@ -11,18 +11,18 @@
             <div>
                 <Icon
                     icon="carbon:information-square-filled"
-                    class="mr-3 text-4xl text-fl-secondary-700 hover:shadow-md"
+                    class="mr-3 text-4xl text-fl-secondary-700 hover:text-fl-secondary-900 transition duration-500"
                 />
             </div>
             <button @click="toggleDropdown">
                 <div class="flex items-center">
                     <Icon
                         icon="mingcute:user-4-line"
-                        class="rounded-full text-4xl text-fl-primary-900 hover:shadow-md"
+                        class="rounded-full text-4xl text-fl-primary-900 hover:text-fl-primary-300 transition duration-500"
                     />
 
                     <div
-                        class="font-semibold text-fl-primary-900 hover:text-fl-primary-300"
+                        class="font-semibold text-fl-primary-900 hover:text-fl-primary-300 transition duration-500"
                     >
                         {{ tenant }}
                     </div>
@@ -35,7 +35,7 @@
                                     ? 'rotate-180 transition duration-700'
                                     : ' transition duration-700'
                             "
-                            class="ml-2 w-4 text-fl-primary-900"
+                            class="ml-2 w-4 text-fl-primary-900 hover:text-fl-primary-300 transition duration-500 hover:scale-90"
                         />
 
                         <div
