@@ -6,7 +6,7 @@
             'bg-fl-secondary-700': rowIndex % 2 === 0,
             'bg-white': rowIndex % 2 !== 0,
         }"
-        class="text-fl-primary-900"
+        class="text-fl-primary-900 transition duration-500 hover:opacity-50"
     >
         <td
             v-for="(item, colIndex) in row"
