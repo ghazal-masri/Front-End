@@ -4,11 +4,13 @@
             <Icon
                 icon="ci:arrow-up-lg"
                 :class="{ 'opacity-50': sortType === EsortButtonType.UP }"
+                class="hover:scale-110 hover:text-fl-primary-300"
             />
 
             <Icon
                 icon="ci:arrow-down-lg"
                 :class="{ 'opacity-50': sortType === EsortButtonType.DOWN }"
+                class="hover:scale-110 hover:text-fl-primary-300"
             />
         </button>
     </div>

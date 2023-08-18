@@ -1,6 +1,6 @@
 <template>
     <styles-component title="Table">
-        <div>
+        <div v-if="tableData.data.length">
             <div
                 class="relative max-h-96 overflow-auto rounded-lg shadow scrollbar-thin scrollbar-track-white scrollbar-thumb-fl-primary-900"
             >
@@ -26,7 +26,7 @@
                                         ></sort-button>
                                     </div>
                                     <button
-                                        class="pl-4"
+                                        class="pl-4 hover:scale-110 hover:text-fl-primary-300"
                                         @click="toggleColumns(labelIndex)"
                                     >
                                         <Icon icon="basil:eye-outline" />
@@ -48,17 +48,24 @@
                     </tbody>
                 </table>
             </div>
-            <pagination-style
-                @on-next-clicked="nextClicked"
-                @on-prev-clicked="prevClicked"
-                :first-index="firstIndex"
-                :last-index="lastIndex"
-            ></pagination-style></div
+            <div class="flex items-center justify-between">
+                <div class="font-bold hover:scale-95 hover:text-fl-primary-300 transition duration-500">
+                    <button @click="loadMore()">Load More</button>
+                </div>
+                <div>
+                    <pagination-style
+                        @on-next-clicked="nextClicked"
+                        @on-prev-clicked="prevClicked"
+                        :first-index="firstIndex"
+                        :last-index="totalPages"
+                    ></pagination-style>
+                </div>
+            </div></div
     ></styles-component>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import dataView from './data-view.vue'
 import { Icon } from '@iconify/vue'
 import stylesComponent from './stylesComponent.vue'
@@ -66,7 +73,9 @@ import sortButton from './sort-button/sort-button.vue'
 import { EsortButtonType } from './sort-button/sort-button.type'
 import { tableType } from '../Api/DataTableAPI/DataTableAPI.Types'
 import paginationStyle from './pagination-style.vue'
-
+const emit = defineEmits<{
+    (e: 'loadMoreClicked'): void
+}>()
 interface PropsType {
     tableData: tableType
     stickyColumn?: boolean
@@ -91,9 +100,8 @@ function cellClicked(col: number, row: number) {}
 let showHide = ref<showHideType>([])
 let dataToView = ref<tableType>({} as tableType)
 
-const totalPages = ref<number>(Math.floor(props.tableData.data.length / 10))
+let totalPages = ref<number>(1)
 let firstIndex = ref<number>(0)
-const lastIndex = ref<number>(totalPages.value)
 const totalRowsPerPage = ref<number>(10)
 let startRow = ref<number>(0)
 let endRow = ref<number>(totalRowsPerPage.value)
@@ -109,8 +117,21 @@ function prevClicked() {
     startRow.value = startRow.value - totalRowsPerPage.value
 }
 
+
+
+function loadMore() {
+    emit('loadMoreClicked')
+}
+watch(
+    () => props.tableData.data.length,
+    () => (totalPages.value = Math.floor(props.tableData.data.length / 10))
+)
+
 function init() {
+    console.log(props.tableData.data.length)
     dataToView.value = props.tableData
+    props.tableData &&
+        (totalPages.value = Math.floor(props.tableData.data.length / 10))
 }
 onMounted(init)
 </script>

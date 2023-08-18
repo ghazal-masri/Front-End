@@ -33,11 +33,12 @@
                     @on-text-clicked="textClicked"
                 />
             </div>
-
+            
             <div v-if="tableData?.labels?.length">
                 <table-view
                     :table-data="tableData"
                     :sticky-column="true"
+                    @load-more-clicked="loadNext"
                 ></table-view>
             </div>
             <div>
@@ -67,6 +68,11 @@ function textClicked() {
 }
 function toggleMobMenu() {
     showMenu.value = !showMenu.value
+}
+
+async function loadNext() {
+    await tableDataStore.loadNext()
+    tableData.value = tableDataStore.dataTable
 }
 
 let tableData = ref<tableType>({} as tableType)
